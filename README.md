@@ -1,30 +1,30 @@
-# Whatsapp Channel Reactions
+# WhatsApp Channel Reactions
 
-Ce dépôt contient une API Express (backend) et un frontend Next.js minimal pour recevoir les messages d'une chaîne WhatsApp via webhook et afficher des réactions sur un site.
+Petit projet qui permet de recevoir les messages WhatsApp via webhook et d’afficher des réactions sur un site web.
 
-Structure:
-- /api : backend Express
-- /frontend : frontend Next.js
+Ce repo a été simplifié pour un seul déploiement sur Vercel.
 
-Getting started (local)
+## Structure
+auto
+- frontend/ : l’application accessible sur Vercel
+- `frontend/api/` : les fonctions Lambda / Serverless pour webhook et API
+- `frontend/lib/db.js` : connexion PostgreSQL
+- `frontend/public/index.html` : landing page professionnelle
 
-Backend:
-1. cd api
-2. npm install
-3. cp .env.example .env  # remplir VERIFY_TOKEN, optional WHATSAPP_TOKEN et PHONE_NUMBER_ID
-4. npm start
+## Déploiement sur Vercel
+1. Créer un projet Vercel et choisir le dossier `frontend`
+2. Ajouter les variables d’environnement :
+   - `DATABASE_URL` : la chaîne de connexion PostgreSQL (Supabase, Vercel Postgres, ou autre)
+   - `VERIFY_TOKEN` : token Meta/WhatsApp de vérification du webhook
+   - `WHATSAPP_TOKEN` : optionnel, pour l’envoi de messages
+   - `PHONE_NUMBER_ID` : optionnel, pour l’envoi de messages
+3. Déployer
 
-Frontend:
-1. cd frontend
-2. npm install
-3. cp .env.example .env.local
-4. npm run dev
+## WhatsApp webhook
+Dans Meta / WhatsApp Cloud API, ajouter le webhook:
+- URL : `https://<votre-site-vercel>/api/webhook`
+- Verify Token : la même valeur que `VERIFY_TOKEN`
+- Event : `messages`
 
-Exposer le backend pour WhatsApp webhook (ngrok):
-- ngrok http 3000
-- Configurer l'URL de webhook dans Meta WhatsApp Cloud API à: https://<ngrok>.ngrok.io/webhook
-- Utiliser le VERIFY_TOKEN configuré
-
-Notes:
-- Les réactions sont stockées localement et n'apparaissent pas comme réactions natives dans WhatsApp (impossible via l'API officielle).
-- Pour envoyer des récapitulatifs vers WhatsApp, renseigne WHATSAPP_TOKEN et PHONE_NUMBER_ID dans api/.env
+## Important
+Les “réactions” ne sont pas des réactions natives WhatsApp. C’est un site qui affiche des réactions sous les messages reçus, ce qui est compatible avec l’API officielle.

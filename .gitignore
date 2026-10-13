@@ -1,7 +1,5 @@
-/node_modules
-/.env
-/data.db
-/dist
-/.next
-/frontend/node_modules
-/api/node_modules
+node_modules
+.next
+.env
+.env.local
+*.log

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WhatsApp Channel Reactions — Connectez votre chaîne WhatsApp</title>
+  <meta name="description" content="Affichez des réactions en direct sous les messages de votre chaîne WhatsApp. Connectez votre numéro et montrez les réactions sur un site professionnel." />
+  <meta name="theme-color" content="#0b5cff">
+  <style>
+    :root{ --bg:#0f172a; --card:#0b1220; --accent:#0b5cff; --muted:#94a3b8; --glass: rgba(255,255,255,0.04); }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#e6eef8;background:linear-gradient(180deg,#071025 0%, #071839 100%);}
+    .wrap{max-width:1100px;margin:48px auto;padding:28px;border-radius:14px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 10px 30px rgba(2,6,23,0.6);} 
+    header{display:flex;align-items:center;gap:20px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#00c6ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:24px}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .hero{display:flex;gap:40px;margin-top:26px;align-items:center}
+    .hero-left{flex:1}
+    .cta{margin-top:18px}
+    .btn{background:var(--accent);color:white;padding:12px 18px;border-radius:10px;border:0;cursor:pointer;font-weight:600;text-decoration:none}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+    .card{background:var(--card);padding:14px;border-radius:10px;color:#cfe8ff;box-shadow:0 6px 18px rgba(2,6,23,0.45)}
+    .small{color:var(--muted);font-size:13px}
+    .preview{flex:1;min-height:260px;border-radius:12px;background:linear-gradient(180deg,#041225, #07203a);padding:14px;color:#bcdffb}
+    .preview .msg{background:var(--glass);padding:10px;border-radius:8px;margin-bottom:8px}
+    footer{margin-top:26px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;align-items:center}
+    @media(max-width:900px){.hero{flex-direction:column}.feature-grid{grid-template-columns:repeat(1,1fr)}}
+    .brand{display:inline-block;color:var(--accent);font-weight:700}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">WA</div>
+      <div>
+        <h1>WhatsApp Channel Reactions</h1>
+        <p class="lead">Affichez des réactions sous chaque message de votre chaîne WhatsApp — configuration rapide, interface moderne, et analytics basiques.</p>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <div class="card">
+          <h2 style="margin:0">Connectez votre chaîne. Montrez les réactions.</h2>
+          <p class="small">Lorsque vous envoyez un message sur votre chaîne WhatsApp, il apparaît automatiquement sur ce site et les visiteurs peuvent réagir (👍 ❤️ 😂 🔥). Les réactions sont stockées ici et augmentent en temps réel.</p>
+          <div class="cta">
+            <a class="btn" href="/">Lancer l'application</a>
+            <a class="btn ghost" href="#how">Comment ça marche</a>
+          </div>
+        </div>
+
+        <div class="feature-grid">
+          <div class="card">
+            <strong>Webhook WhatsApp</strong>
+            <p class="small">Recevez automatiquement les messages via WhatsApp Cloud API et enregistrez-les.</p>
+          </div>
+          <div class="card">
+            <strong>Réactions sur le site</strong>
+            <p class="small">Boutons d'émoticônes sous chaque message, comptage et listing des réactions.</p>
+          </div>
+          <div class="card">
+            <strong>Déploiement prêt</strong>
+            <p class="small">Frontend optimisé pour Vercel, backend prêt pour Render ou Railway.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="preview">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div class="small">Chaîne : <span class="brand">MaChaîneWhatsApp</span></div>
+          <div class="small">En ligne</div>
+        </div>
+        <div class="msg"><strong>+22912345678</strong><div style="font-size:14px;margin-top:6px">Salut tout le monde !</div><div style="margin-top:8px;color:var(--muted)">👍 42 &nbsp; ❤️ 18 &nbsp; 🔥 9</div></div>
+        <div class="msg"><strong>+22998765432</strong><div style="font-size:14px;margin-top:6px">Nouvelle annonce : promo ce weekend</div><div style="margin-top:8px;color:var(--muted)">👍 12 &nbsp; 😂 2</div></div>
+        <div style="margin-top:8px" class="small">Exemple d'aperçu — chaque message reçoit des réactions sur le site.</div>
+      </div>
+    </section>
+
+    <section id="how" style="margin-top:22px;display:flex;gap:18px;flex-wrap:wrap">
+      <div style="flex:1;min-width:280px" class="card">
+        <h3>Comment connecter</h3>
+        <ol class="small">
+          <li>Déployer le backend sur Render (folder <code>api/</code>).</li>
+          <li>Déployer le frontend sur Vercel (folder <code>frontend/</code>).</li>
+          <li>Dans le dashboard Meta, configurer le webhook vers <code>https://YOUR_BACKEND_URL/webhook</code> et mettre le même <code>VERIFY_TOKEN</code>.</li>
+          <li>Envoyer un message sur votre numéro WhatsApp : il s'affichera automatiquement sur le site.</li>
+        </ol>
+      </div>
+
+      <div style="flex:1;min-width:280px" class="card">
+        <h3>Fonctionnalités</h3>
+        <ul class="small">
+          <li>Feed en temps quasi-réel (polling ou WebSockets possible)</li>
+          <li>Réactions par message (likers anonymes ou par utilisateur)</li>
+          <li>Envoi d'un récapitulatif au contact (optionnel)</li>
+          <li>Logs et modération basique</li>
+        </ul>
+      </div>
+
+      <div style="flex:1;min-width:280px" class="card">
+        <h3>Besoin d'aide ?</h3>
+        <p class="small">Je peux : configurer Render/Vercel pour toi, ajouter un DNS personnalisé, ou activer l'authentification pour limiter les votes.</p>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <strong>WhatsApp Channel Reactions</strong></div>
+      <div class="small">Docs & Déploiement : <a style="color:inherit;text-decoration:underline" href="https://github.com/PRINCE-MOVIE/whatsapp-channel-reactions">Repo GitHub</a></div>
+    </footer>
+  </div>
+</body>
+</html>
